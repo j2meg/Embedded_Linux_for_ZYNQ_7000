@@ -74,18 +74,22 @@ bin/ct-ng menuconfig
 ```bash
 bin/ct-ng build
 ``` 
+For a reference on the building process 
+review the next document ``` 04_crosstool-NG-reference-building-log.txt``` 
+on this directory. 
 
 #### Final Configuration
 Once that your toolchain have been created
-
+**Remember that the path to your Generated toolchain is**
+```${HOME}/x-tools/arm-cortexa9_neon-linux-gnueabihf/```
 ```bash
 #Add a toolchain created using CrosstoolNG to your path
 # and export ARCH and CROSS_COMPILE variables ready to 
 # compile U-Boot, Linux, Busybox and anything else using
 # the Kconfig/Kbuild scripts
 
-PATH=${HOME}/x-tools/arm-unknown-linux-gnueabi/bin/:$PATH
-export CROSS_COMPILE=arm-unknown-linux-gnueabi-
+PATH=${HOME}/x-tools/arm-cortexa9_neon-linux-gnueabihf/bin/:$PATH
+export CROSS_COMPILE=arm-cortexa9_neon-linux-gnueabihf-
 export ARCH=arm
 ```
 
