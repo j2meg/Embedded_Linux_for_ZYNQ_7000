@@ -25,8 +25,12 @@ libtool-bin make  patch python3-dev rsync texinfo unzip wget xz-utils
 
 ### Some modifications for Fedora  
 libncurses5-dev==ncurses-devel
+
 libstdc++6==libstdc++
+
 libtool-bin==libtool
+
 python3-dev==python3-devel
+
 xz-utils==xz
 
