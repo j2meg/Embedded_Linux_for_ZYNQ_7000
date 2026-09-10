@@ -2,7 +2,7 @@
 Information from page 52. 
 -  device-tree-compiler
 -  git
-.  make
+-  make
 -  patch
 -  u-boot-tools or equivalent programs.
 
@@ -10,8 +10,7 @@ Information from page 52.
 
 # To modify if needed... 
 -  MicroSD Card reader and card (Probably the embedded on Zynq and Pynq Hardware)
-
---USB to TTL 3.3V serial Cable 
---5v 1A power supply
+- USB to TTL 3.3V serial Cable 
+- 5v 1A power supply
 
 
