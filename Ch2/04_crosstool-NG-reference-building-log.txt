@@ -1,0 +1,180 @@
+bin/ct-ng build
+[INFO ]  Performing some trivial sanity checks
+[INFO ]  Build started 20260910.114901
+[INFO ]  Building environment variables
+[WARN ]  Directory '/home/j2m/src' does not exist.
+[WARN ]  Will not save downloaded tarballs to local storage.
+[EXTRA]  Preparing working directories
+[EXTRA]  Installing user-supplied crosstool-NG configuration
+[EXTRA]  =================================================================
+[EXTRA]  Dumping internal crosstool-NG configuration
+[EXTRA]    Building a toolchain for:
+[EXTRA]      build  = x86_64-pc-linux-gnu
+[EXTRA]      host   = x86_64-pc-linux-gnu
+[EXTRA]      target = arm-cortexa9_neon-linux-gnueabihf
+[EXTRA]  Dumping internal crosstool-NG configuration: done in 0.36s (at 00:13)
+[INFO ]  =================================================================
+[INFO ]  Retrieving needed toolchain components' tarballs
+[INFO ]  Retrieving needed toolchain components' tarballs: done in 1.41s (at 00:15)
+[INFO ]  =================================================================
+[INFO ]  Extracting and patching toolchain components
+[INFO ]  Extracting and patching toolchain components: done in 1.24s (at 00:16)
+[INFO ]  =================================================================
+[INFO ]  Installing ncurses for build
+[EXTRA]    Configuring ncurses
+[EXTRA]    Building ncurses
+[EXTRA]    Installing ncurses
+[INFO ]  Installing ncurses for build: done in 92.08s (at 01:48)
+[INFO ]  =================================================================
+[INFO ]  Installing zlib for host
+[EXTRA]    Configuring zlib
+[EXTRA]    Building zlib
+[EXTRA]    Installing zlib
+[INFO ]  Installing zlib for host: done in 4.17s (at 01:52)
+[INFO ]  =================================================================
+[INFO ]  Installing zstd for host
+[EXTRA]    Building zstd
+[EXTRA]    Installing zstd
+[INFO ]  Installing zstd for host: done in 33.88s (at 02:26)
+[INFO ]  =================================================================
+[INFO ]  Installing GMP for host
+[EXTRA]    Configuring GMP
+[EXTRA]    Building GMP
+[EXTRA]    Installing GMP
+[INFO ]  Installing GMP for host: done in 109.38s (at 04:16)
+[INFO ]  =================================================================
+[INFO ]  Installing MPFR for host
+[EXTRA]    Configuring MPFR
+[EXTRA]    Building MPFR
+[EXTRA]    Installing MPFR
+[INFO ]  Installing MPFR for host: done in 73.32s (at 05:29)
+[INFO ]  =================================================================
+[INFO ]  Installing ISL for host
+[EXTRA]    Configuring ISL
+[EXTRA]    Building ISL
+[EXTRA]    Installing ISL
+[INFO ]  Installing ISL for host: done in 117.16s (at 07:26)
+[INFO ]  =================================================================
+[INFO ]  Installing MPC for host
+[EXTRA]    Configuring MPC
+[EXTRA]    Building MPC
+[EXTRA]    Installing MPC
+[INFO ]  Installing MPC for host: done in 27.62s (at 07:54)
+[INFO ]  =================================================================
+[INFO ]  Installing expat for host
+[EXTRA]    Configuring expat
+[EXTRA]    Building expat
+[EXTRA]    Installing expat
+[INFO ]  Installing expat for host: done in 26.53s (at 08:21)
+[INFO ]  =================================================================
+[INFO ]  Installing ncurses for host
+[EXTRA]    Configuring ncurses
+[EXTRA]    Building ncurses
+[EXTRA]    Installing ncurses
+[INFO ]  Installing ncurses for host: done in 94.92s (at 09:55)
+[INFO ]  =================================================================
+[INFO ]  Installing libiconv for host
+[EXTRA]    Skipping (included in GNU C library)
+[INFO ]  Installing libiconv for host: done in 0.03s (at 09:55)
+[INFO ]  =================================================================
+[INFO ]  Installing gettext for host
+[EXTRA]    Skipping (included in GNU C library)
+[INFO ]  Installing gettext for host: done in 0.02s (at 09:56)
+[INFO ]  =================================================================
+[INFO ]  Installing binutils for host
+[EXTRA]    Configuring binutils
+[EXTRA]    Building binutils
+[EXTRA]    Installing binutils
+[INFO ]  Installing binutils for host: done in 272.67s (at 14:28)
+[INFO ]  =================================================================
+[INFO ]  Installing kernel headers
+[EXTRA]    Installing kernel headers
+[INFO ]  Installing kernel headers: done in 25.20s (at 14:53)
+[INFO ]  =================================================================
+[INFO ]  Installing core C gcc compiler
+[EXTRA]    Configuring core C gcc compiler
+[EXTRA]    Building gcc
+[EXTRA]    Installing gcc
+[EXTRA]    Housekeeping for core gcc compiler
+[EXTRA]       '' --> lib (gcc)   lib (os)
+[INFO ]  Installing core C gcc compiler: done in 2639.03s (at 58:53)
+[INFO ]  =================================================================
+[INFO ]  Installing C library
+[INFO ]    =================================================================
+[INFO ]    Building for multilib 1/1: ''
+[EXTRA]      Configuring C library
+[EXTRA]      Building C library
+[EXTRA]      Installing C library
+[EXTRA]      Configuring C library localedef
+[EXTRA]      Building C library localedef
+[EXTRA]      Installing C library locales
+[INFO ]    Building for multilib 1/1: '': done in 7661.83s (at 186:35)
+[INFO ]  Installing C library: done in 7662.04s (at 186:35)
+[INFO ]  =================================================================
+[INFO ]  Installing final gcc compiler
+[EXTRA]    Configuring final gcc compiler
+[EXTRA]    Building final gcc compiler
+[EXTRA]    Installing final gcc compiler
+[EXTRA]    Housekeeping for final gcc compiler
+[EXTRA]       '' --> lib (gcc)   lib (os)
+[INFO ]  Installing final gcc compiler: done in 4116.30s (at 255:11)
+[INFO ]  =================================================================
+[INFO ]  Installing GMP for target
+[EXTRA]    Configuring GMP
+[EXTRA]    Building GMP
+[EXTRA]    Installing GMP
+[INFO ]  Installing GMP for target: done in 104.65s (at 256:56)
+[INFO ]  =================================================================
+[INFO ]  Installing MPFR for target
+[EXTRA]    Configuring MPFR
+[EXTRA]    Building MPFR
+[EXTRA]    Installing MPFR
+[INFO ]  Installing MPFR for target: done in 59.26s (at 257:55)
+[INFO ]  =================================================================
+[INFO ]  Installing expat for target
+[EXTRA]    Configuring expat
+[EXTRA]    Building expat
+[EXTRA]    Installing expat
+[INFO ]  Installing expat for target: done in 21.29s (at 258:16)
+[INFO ]  =================================================================
+[INFO ]  Installing ncurses for target
+[EXTRA]    Configuring ncurses
+[EXTRA]    Building ncurses
+[EXTRA]    Installing ncurses
+[INFO ]  Installing ncurses for target: done in 147.42s (at 260:44)
+[INFO ]  =================================================================
+[INFO ]  Installing cross-gdb
+[EXTRA]    Configuring cross gdb
+[EXTRA]    Building cross gdb
+[EXTRA]    Installing cross gdb
+[EXTRA]    Installing '.gdbinit' template
+[INFO ]  Installing cross-gdb: done in 1485.48s (at 285:29)
+[INFO ]  =================================================================
+[INFO ]  Installing native gdb
+[EXTRA]    Configuring native gdb
+[EXTRA]    Prepare gdb for static build
+[EXTRA]    Building native gdb
+[EXTRA]    Installing native gdb
+[INFO ]  Installing native gdb: done in 1121.45s (at 304:11)
+[INFO ]  =================================================================
+[INFO ]  Installing gdb server
+[EXTRA]    Configuring native gdb
+[EXTRA]    Prepare gdb for static build
+[EXTRA]    Building native gdb
+[EXTRA]    Installing native gdb
+[INFO ]  Installing gdb server: done in 274.27s (at 308:45)
+[INFO ]  =================================================================
+[INFO ]  Finalizing the toolchain's directory
+[INFO ]    Stripping all toolchain executables
+[EXTRA]    Installing the populate helper
+[EXTRA]    Installing a cross-ldd helper
+[EXTRA]    Installing a cmake toolchain file
+[EXTRA]    Creating toolchain aliases
+[EXTRA]    Removing installed documentation
+[EXTRA]    Collect license information from: /media/j2m/Almacenamiento/EmbeddedLinux/Experiments/crosstool-installation/crosstool-ng/.build/arm-cortexa9_neon-linux-gnueabihf/src
+[EXTRA]    Put the license information to: /home/j2m/x-tools/arm-cortexa9_neon-linux-gnueabihf/share/licenses
+[INFO ]  Finalizing the toolchain's directory: done in 26.57s (at 309:12)
+[INFO ]  Build completed at 20260910.165812
+[INFO ]  (elapsed: 309:10.20)
+[INFO ]  Finishing installation (may take a few seconds)...
+[309:12]
