@@ -5,11 +5,17 @@ https://www.qemu.org/download/
 ```
 #on Ubuntu
 sudo apt-get install qemu-system
+
 #on Fedora: 
-dnf install @virtualization
+sudo dnf install @virtualization #Install qemu
+sudo dnf install qemu-system-arm # Install qemu support for arm architectures
 
 # Verify installation 
 qemu-system-arm --version
+# current version for ubuntu Ubuntu 22.04.5 LTS: 6.2.0
+# current version for Fedora Linux 44 (Xfce): 10.2.2
+
+
 # List the available hardware emulation architectures
 qemu-system-arm -machine help
 ```
