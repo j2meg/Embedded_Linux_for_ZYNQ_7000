@@ -68,33 +68,40 @@ bin/ct-ng show-arm-cortex_a8-linux-gnueabi
     Companion libs  : expat-2.7.1 gettext-0.26 gmp-6.3.0 isl-0.27 libelf-0.8.13 libiconv-1.18 mpc-1.3.1 mpfr-4.2.2 ncurses-6.5 zlib-1.3.1 zstd-1.5.7
     Companion tools :
 ```
--- Start to correct from here --
---To chose and to configure your owm toolchain: 
+#### To chose and to configure a customized toolchain: 
+
+```bash
+# choose a pre-configured architecture from de samples list
 bin/ct-ng arm-cortex_a8-linux-gnueabi
+# set specific configurations for your toolchain
 bin/ct-ng menuconfig
-
---build the toolchain 
+# build the customized toolchain 
 bin/ct-ng build
+```
 
 
--- To create a new toolchain for other architecture
+#### To create a new toolchain for other architecture
+```bash
 bin/ct-ng distclean
 bin/ct-ng arm-unknown-linux-gnueabi 
 
--change the configuration on menuconfic
--on Paths and misc options > disable Render the toolchain readonly 
-
+#change the configuration on menuconfic
+#on Paths and misc options > disable Render the toolchain readonly 
+# This allows to modify internal libraries and configurations on your final 
+# toolchain
 bin/ct-ng build
+``` 
 
-# Once that your toolchain have been created
+#### Final Configuration
+Once that your toolchain have been created
 
-# Add a toolchain created using CrosstoolNG to your path
+```bash
+#Add a toolchain created using CrosstoolNG to your path
 # and export ARCH and CROSS_COMPILE variables ready to 
 # compile U-Boot, Linux, Busybox and anything else using
 # the Kconfig/Kbuild scripts
 
-# Chris Simmonds, chris@2net.co.uk
-
 PATH=${HOME}/x-tools/arm-unknown-linux-gnueabi/bin/:$PATH
 export CROSS_COMPILE=arm-unknown-linux-gnueabi-
 export ARCH=arm
+```
