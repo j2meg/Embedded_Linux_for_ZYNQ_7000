@@ -1,14 +1,14 @@
 # Installing QEMU
 
-*Web site* 
+**Web site** 
 https://www.qemu.org/download/
 
-####on Ubuntu
+#### on Ubuntu
 ```
 sudo apt-get install qemu-system
 ```
 
-####on Fedora: 
+#### on Fedora: 
 ```
 sudo dnf install @virtualization #Install qemu
 sudo dnf install qemu-system-arm # Install qemu support for arm architectures
