@@ -1,6 +1,6 @@
-# Technical requirements
-
-## Requirements list
+# Crosstool-NG 
+Set of tools for target specific  toolchain compilation. 
+## Technical requirements
 ```bash
 autoconf, automake, bison, bzip2, cmake, flex, g++,
 gawk, gcc, gettext, git,gperf,help2man,libncurses5-dev.libstdc++6,
