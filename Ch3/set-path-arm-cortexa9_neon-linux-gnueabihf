@@ -1,0 +1,10 @@
+# Add a toolchain created using CrosstoolNG to your path
+# and export ARCH and CROSS_COMPILE variables ready to 
+# compile U-Boot, Linux, Busybox and anything else using
+# the Kconfig/Kbuild scripts
+# For the ZYBO development board
+
+PATH=${HOME}/x-tools/arm-cortexa9_neon-linux-gnueabihf/bin/:$PATH
+export CROSS_COMPILE=arm-cortexa9_neon-linux-gnueabihf-
+export ARCH=arm
+```

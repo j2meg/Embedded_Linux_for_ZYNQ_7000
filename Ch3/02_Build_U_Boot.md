@@ -1,7 +1,7 @@
 # U-Boot Installation Process 
-Page 64
+Reference MLPE - Page 64
 
-Das U-Boot is an open source bootloader for embeded boards. 
+Das U-Boot is aopen source bootloader for embeded boards. 
 It borned as a PowerPC boards bootloader, and, then it was ported to
 arm, mips and sh based boards. 
 
@@ -34,12 +34,12 @@ git checkout v2021.01
 # althoug they checkout to v2021.01, support for arm versatile still
 # just til 2015, then we use if we want another board look for different
 # stable releases of u-boot and identify your correct version
-git checkout v2014.10
+git checkout v2026.07
 git status 
 git describe --tags --always 
 ``` 
 
-## the lastest versions of u boot are:
+#### the lastest versions of u boot are:
 v2026.01
 v2026.01-rc1
 v2026.01-rc2
@@ -61,5 +61,5 @@ v2026.07-rc5
 v2026.10-rc1
 v2026.10-rc2
 
-## The lastest stable release is v2026.07
-
+#### The lastest stable release is v2026.07
+## To look for ZYNQ-7000 devices, see next document on this repository.
