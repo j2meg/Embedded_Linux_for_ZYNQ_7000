@@ -111,3 +111,9 @@ where oficial support for U-Boot is documented through Petalinux recipes.
 
 https://github.com/Xilinx/PYNQ/blob/master/boards/Pynq-Z2/petalinux_bsp/meta-user/recipes-bsp/u-boot/u-boot-xlnx_%25.bbappend
 
+# Non Oficcial but interesting tutorials for linux on PYNQ. 
+
+- https://github.com/zakimadaoui/pynq-project1-linux-from-scratch
+- https://github.com/jinchenglee/zybo_linux_setup_doc
+- https://github.com/Digilent/Petalinux-Zybo/blob/master/README.md 
+
