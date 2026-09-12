@@ -79,3 +79,35 @@ cd tools
 export PATH=`pwd`:$PATH
 ```
 
+# U-Boot Compatibility with PYNQ-Z2
+
+As this repository tries to be a reliable implementation of MELP examples
+targeting Xilinx SoC ZYNQ-7000 hardware showing how to address alternative hardware platforms, I tried to compile U-Boot for PYNQ-Z2
+directely from U-Boot releases. Furthermore, although a SoC ZYNQ XC7Z020 is the core of this evaluation board, **there is no support in U-Boot mainline for PYNQ-Z2**.
+
+There is non official documentation that explain it. 
+But after an exhaustive review on official documentation and multiple Xilinx and U-Boot repositories and forums we can conclude that, 
+as is documented on 
+
+
+https://discuss.pynq.io/t/help-building-from-source-for-pynq/149
+
+Due to the complexity of board hardware and the official support of the brand for 
+Petalinux (A wrapped version of YOCTO with some aditional compatibility layers), **Xilinx developers does not provide an** ``` zynq_pynq_defconfig```
+for U-Boot mainline. 
+
+Without this file, a standalone BOOT file cannot be compiled. 
+
+Some proposals to create it have been docummented, but not officially added or supported in U-Boot Denx or Xilinx repositories.
+
+For example: 
+- https://github.com/Xilinx/u-boot-xlnx/pull/37
+
+# Oficial support in Embedded Linux for PYNQ BOARDS
+We recommend to follow the workflow of ```PYNQ PROJECT```
+https://github.com/Xilinx/PYNQ/tree/master
+
+where oficial support for U-Boot is documented through Petalinux recipes.
+
+https://github.com/Xilinx/PYNQ/blob/master/boards/Pynq-Z2/petalinux_bsp/meta-user/recipes-bsp/u-boot/u-boot-xlnx_%25.bbappend
+
