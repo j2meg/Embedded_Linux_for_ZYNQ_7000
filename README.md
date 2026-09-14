@@ -9,7 +9,7 @@ Aligned with the main objective, documentations and implementations follows the 
 ## Table of Content 
 ## Table of Contents
 
-* 
+ 
 * [Chapter 1 — Starting Out](Ch1/)
   * [01 QEMU Installation](Ch1/01_Install_QEMU.md)
 * [Chapter 2 — Learning about Toolchains](Ch2/)
@@ -28,4 +28,4 @@ Aligned with the main objective, documentations and implementations follows the 
   * [Util scripts](Ch3/util_scripts/)
 * [Chapter 4 — Configuring and Building the Kernel](Ch4/)
   * [Technical Requirements](Ch4/01_Technical_Requirements.md)
-
+  * [02 Building Kernel for ZYBO](Ch4/02_Building_kernel.md)
