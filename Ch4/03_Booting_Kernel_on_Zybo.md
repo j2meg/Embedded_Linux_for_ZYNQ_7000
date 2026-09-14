@@ -21,8 +21,14 @@ With our kernel compiled on host pc.
     - ```arch/arm/boot/<Correct to the zybo path>```
 - Unmount the SD-card from the host device and insert it on the ZYBO board. 
 
+Code to copy Kernel files to SD-Card
+```bash
+cd <path to linux repository>/linux-stable
+cp arch/arm/boot/zImage /media/j2m/BOOT/
+cp arch/arm/boot/dts/xilinx/zynq-zybo.dtb /media/j2m/BOOT/
 
 
+```
 Next comments help you to configure ZYBO to Boot.
 ## ZYBO Hardware configuration and boot
 To prepare the ZYBO evaluation board for booting, execute next steps. 
@@ -43,7 +49,25 @@ and start communication with your board, in my case:
 minicom -D /dev/ttyUSB1 -b 115200
 ```
 
-### First Boot and expected output. 
+### Manual Kernel Boot and expected output. 
 
+The kernel image and Device Tree were copied to the FAT boot
+partition of the SD card.
+
+From the U-Boot console, both files were loaded manually:
+
+fatload mmc 0:1 0x02000000 zImage
+fatload mmc 0:1 0x03000000 zynq-zybo.dtb
+
+The kernel was then started with:
+
+bootz 0x02000000 - 0x03000000
+
+Linux 6.18.52 successfully initialized the Zynq platform and
+detected the Zybo board, CPU cores, memory, Ethernet controller
+and SD card.
+
+The boot process stopped when Linux attempted to mount the root
+filesystem because no root filesystem had been provided yet.
 Press the ```PS-SRST``` button and you will see the next message on the screen 
 

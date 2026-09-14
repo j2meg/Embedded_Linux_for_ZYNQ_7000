@@ -101,3 +101,15 @@ make multi_v7_defconfig
 #
 
 ```
+## For a reference of the zImage compilation process se at
+    - ```Ch4/reference_files/imageCompilationLog.txt``` 
+
+## for a reference of the modules compilation process se at
+    - ```Ch4/reference_files/modulesCompilationLog.txt```
+
+## Result of Device Tree Binary compilation 
+
+```bash
+ make -j4 xilinx/zynq-zybo.dtb
+  DTC     arch/arm/boot/dts/xilinx/zynq-zybo.dtb
+```
