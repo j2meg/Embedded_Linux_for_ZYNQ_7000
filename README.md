@@ -27,5 +27,6 @@ Aligned with the main objective, documentations and implementations follows the 
   * [07 ZYBO First Boot](Ch3/07_ZYBO_First_Boot.md)
   * [Util scripts](Ch3/util_scripts/)
 * [Chapter 4 — Configuring and Building the Kernel](Ch4/)
-  * [Technical Requirements](Ch4/01_Technical_Requirements.md)
+  * [01 Technical Requirements](Ch4/01_Technical_Requirements.md)
   * [02 Building Kernel for ZYBO](Ch4/02_Building_kernel.md)
+  * [03 Booting Kernel on Zybo](Ch4/03_Booting_Kernel_on_Zybo.md)
