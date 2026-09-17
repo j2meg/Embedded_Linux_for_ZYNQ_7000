@@ -29,3 +29,6 @@ Aligned with the main objective, documentations and implementations follows the 
   * [01 Technical Requirements](Ch4/01_Technical_Requirements.md)
   * [02 Building Kernel for ZYBO](Ch4/02_Building_kernel.md)
   * [03 Booting Kernel on Zybo](Ch4/03_Booting_Kernel_on_Zybo.md)
+* [Chapter 5 - Building a Root filesystem](Ch5)
+  * [01 Topics and Technical Requirements](Ch5/01_Topics_and_Requirements.md)
+  * [02 Root filesystem layout](Ch5/02_Root_Filesystem_layout.md)
