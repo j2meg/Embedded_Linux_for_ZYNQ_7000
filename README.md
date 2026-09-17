@@ -6,7 +6,6 @@ The main objective of this implementation is to provide an alternative guide to 
 
 Aligned with the main objective, documentations and implementations follows the chapters structure of the MELP book allowing to the user to have a complementary Hands-on Learning on embedded systems crossing experience from MELP examples and porting the knowledge to ZYNQ-7000 Platforms. 
 
-## Table of Content 
 ## Table of Contents
 
  
