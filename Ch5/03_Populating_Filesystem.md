@@ -55,6 +55,7 @@ make menucofnig
 # in Destination path for 'make install' set your rootfs path or staging directory.
 ```
 
+Other way to see the building configurations is to see into the ```.config``` file in the busybox repository. 
 The next step is to cross compile your busybox distribution for your specific target. 
 
 In a similar way to what we did for the kernel building:
@@ -72,5 +73,118 @@ make install
 ```
 
 You can see reference outputs of this building and installation proces at: ```Ch5/reference_files``` on this repository. 
+
+
+## Copying Libraries in the root filesystem
+If your target programs are not linked statically, you should to copy shared libraries into your filesystem to be available in your target device. 
+
+This increase the ammount of storage required, then be careful with that. 
+
+To complete this process:
+- Copy required ```.so``` files from the ```sysroot``` directory of your toolchain. 
+
+With that objective we can suppose that our image will eventually need them all. 
+
+Be careful about the amount of storage of ```glibc```, you can use instead ```musl libc``` or  ```uClibc-ng```
+
+Other approach is
+- to cherry pick those libraries that you require through your library dependencies, using ```readelf``` command to your image file. 
+
+In our case: 
+
+```bash
+cd <path to filesystem directory>
+cd rootfs
+# Load temporal environment variables
+PATH=${HOME}/x-tools/arm-cortexa9_neon-linux-gnueabihf/bin/:$PATH
+export CROSS_COMPILE=arm-cortexa9_neon-linux-gnueabihf-
+export ARCH=arm
+
+# Apply readelf to your target cross compiler 
+# As in previous paragraphs we exported a cross compiler env variable
+${CROSS_COMPILE}readelf -a bin/busybox | grep 'program interpreter'
+${CROSS_COMPILE}readelf -a bin/busybox | grep 'Shared library'
+```
+
+This outputs something like: 
+
+```bash 
+[Requesting program interpreter: /lib/ld-linux-armhf.so.3]
+ 0x00000001 (NEEDED)                     Shared library: [libm.so.6]
+ 0x00000001 (NEEDED)                     Shared library: [libresolv.so.2]
+ 0x00000001 (NEEDED)                     Shared library: [libc.so.6]
+```
+
+Now we need to find those ```.so``` files in the toolschain ```sysroot``` directory and copy them to our staging directory. 
+
+Those steps are executed as
+
+```bash
+# Identify your sysroot path 
+${CROSS_COMPILE}gcc -print-sysroot
+
+#output
+~/x-tools/arm-cortexa9_neon-linux-gnueabihf/arm-cortexa9_neon-linux-gnueabihf/sysroot
+
+## Save the sysroot path into a new env variable 
+export SYSROOT=$(${CROSS_COMPILE}gcc -print-sysroot)
+```
+
+For each file in our requirements, let's verify the type of file that they are. 
+
+```bash 
+cd $SYSROOT 
+ls -l lib/ld-linux-armhf.so.3
+ls -l lib/libm.so.6
+ls -l lib/libresolv.so.2
+ls -l lib/libc.so.6
+file lib/ld-linux-armhf.so.3
+file lib/libm.so.6
+file lib/libresolv.so.2
+file lib/libc.so.6
+
+
+# output 
+-rwxr-xr-x 1 j2m j2m 1264692 sep 10 13:45 lib/ld-linux-armhf.so.3
+-rwxr-xr-x 1 j2m j2m 2149832 sep 10 13:43 lib/libm.so.6
+-rwxr-xr-x 1 j2m j2m 217640 sep 10 13:44 lib/libresolv.so.2
+-rwxr-xr-x 1 j2m j2m 11246608 sep 10 13:44 lib/libc.so.6
+lib/ld-linux-armhf.so.3: ELF 32-bit LSB shared object, ARM, EABI5 version 1 (SYSV), dynamically linked, with debug_info, not stripped
+lib/libc.so.6: ELF 32-bit LSB shared object, ARM, EABI5 version 1 (SYSV), dynamically linked, interpreter /lib/ld-linux-armhf.so.3, for GNU/Linux 3.2.0, with debug_info, not stripped
+lib/libm.so.6: ELF 32-bit LSB shared object, ARM, EABI5 version 1 (GNU/Linux), dynamically linked, for GNU/Linux 3.2.0, with debug_info, not stripped
+lib/libresolv.so.2: ELF 32-bit LSB shared object, ARM, EABI5 version 1 (SYSV), dynamically linked, for GNU/Linux 3.2.0, with debug_info, not stripped
+``` 
+
+Some of them can be simbolic links, in that case, take care of to copy both files, symbolic link file and the source wich it points
+
+In my case, I just have to copy the four files: 
+
+```bash
+cp -a $SYSROOT/lib/ld-linux-armhf.so.3 lib
+cp -a $SYSROOT/lib/libm.so.6 lib
+cp -a $SYSROOT/lib/libresolv.so.2 lib
+cp -a $SYSROOT/lib/libc.so.6 lib
+```
+
+### Reducing the size of the libraries (stripping)
+for each of the recent created libraries the output of the file command outputs at the end the note 
+```not stripped```. Strip is the process of reduce the size of your libraries stripping the binaries of symbol tables and other elements that are part of our libraries, to do it: 
+
+```bash
+cd <path to your filesystem>
+cd rootfs
+
+${CROSS_COMPILE}strip lib/ld-linux-armhf.so.3
+${CROSS_COMPILE}strip lib/libm.so.6
+${CROSS_COMPILE}strip lib/libresolv.so.2
+${CROSS_COMPILE}strip lib/libc.so.6
+```
+
+Now, our files must be stripped and its total size have been reduced from original. 
+
+```bash
+file lib/libc.so.6 
+lib/libc.so.6: ELF 32-bit LSB shared object, ARM, EABI5 version 1 (SYSV), dynamically linked, interpreter /lib/ld-linux-armhf.so.3, for GNU/Linux 3.2.0, stripped
+```
 
 
