@@ -37,3 +37,43 @@ For Embedded systems, FHS tends to include the next structure:
 - ```/var```: A hierarchy of files and directories that may be modified at runtime, for example, log messages, some of which must be retained after boot. 
 
 
+# Stagging directory
+
+To implement our filesystem on an Embedded System, we should star by creating a ```staging``` 
+directory on our host computer. 
+
+At this directory, we can assemble the files that will eventually be transferred 
+to the target. for purposes of this tutorial we will create the path ```rootfs```.
+
+To generate our ```filesystem skeleton``` execute the next commands 
+
+```bash 
+cd <path to your experiments directory on host system>
+mkdir rootfs
+cd rootfs
+mkdir bin dev etc home lib proc sbin sys tmp usr var
+mkdir usr/bin usr/lib usr/sbin
+mkdir -p var/log
+```
+
+The expected output for our tree directory is: 
+
+```bash 
+tree
+.
+├── bin
+├── dev
+├── etc
+├── home
+├── lib
+├── proc
+├── sbin
+├── sys
+├── tmp
+├── usr
+│   ├── bin
+│   ├── lib
+│   └── sbin
+└── var
+    └── log
+```
