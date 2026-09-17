@@ -77,3 +77,14 @@ tree
 └── var
     └── log
 ```
+
+A last step on this root filesystem creation is to grant appropriate presmissions to the recent created directories. 
+
+A deep discussion on that topic is available on page ```127``` of the reference book. 
+
+For porposes of this tutorial, we will relie on the next configurations to assign ownership of the staging directory to the ```root``` user. 
+
+```bash
+cd <path to our experiments directory>
+cd rootfs
+sudo chown -R root:root *

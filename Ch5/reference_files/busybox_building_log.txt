@@ -1,0 +1,263 @@
+make
+  SPLIT   include/autoconf.h -> include/config/*
+  GEN     include/bbconfigopts.h
+  GEN     include/common_bufsiz.h
+  GEN     include/embedded_scripts.h
+  HOSTCC  applets/usage
+applets/usage.c: In function ‘main’:
+applets/usage.c:52:17: warning: ignoring return value of ‘write’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+   52 |                 write(STDOUT_FILENO, usage_array[i].usage, strlen(usage_array[i].usage) + 1);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  GEN     include/usage_compressed.h
+  HOSTCC  applets/applet_tables
+  GEN     include/applet_tables.h include/NUM_APPLETS.h
+  GEN     include/applet_tables.h include/NUM_APPLETS.h
+  CC      applets/applets.o
+  LD      applets/built-in.o
+  HOSTCC  applets/usage_pod
+  CC      libbb/appletlib.o
+  CC      libbb/lineedit.o
+  CC      libbb/vfork_daemon_rexec.o
+  AR      libbb/lib.a
+  CC      networking/tcpudp.o
+  CC      networking/tcpudp_perhost.o
+  CC      networking/telnet.o
+  CC      networking/telnetd.o
+  CC      networking/tftp.o
+networking/tftp.c: In function ‘tftpd_main’:
+networking/tftp.c:886:15: warning: ‘local_file’ is used uninitialized [-Wuninitialized]
+  886 |         char *local_file = local_file;
+      |               ^~~~~~~~~~
+networking/tftp.c:886:15: note: ‘local_file’ was declared here
+  886 |         char *local_file = local_file;
+      |               ^~~~~~~~~~
+  CC      networking/tls.o
+  CC      networking/tls_aes.o
+  CC      networking/tls_aesgcm.o
+  CC      networking/tls_fe.o
+  CC      networking/tls_pstm.o
+  CC      networking/tls_pstm_montgomery_reduce.o
+  CC      networking/tls_pstm_mul_comba.o
+  CC      networking/tls_pstm_sqr_comba.o
+  CC      networking/tls_rsa.o
+  CC      networking/tls_sp_c32.o
+  CC      networking/traceroute.o
+  CC      networking/tunctl.o
+  CC      networking/vconfig.o
+  CC      networking/wget.o
+  CC      networking/whois.o
+  CC      networking/zcip.o
+  AR      networking/lib.a
+  LD      networking/libiproute/built-in.o
+  CC      networking/libiproute/ip_parse_common_args.o
+  CC      networking/libiproute/ipaddress.o
+  CC      networking/libiproute/iplink.o
+  CC      networking/libiproute/ipneigh.o
+  CC      networking/libiproute/iproute.o
+  CC      networking/libiproute/iprule.o
+  CC      networking/libiproute/iptunnel.o
+  CC      networking/libiproute/libnetlink.o
+  CC      networking/libiproute/ll_addr.o
+  CC      networking/libiproute/ll_map.o
+  CC      networking/libiproute/ll_proto.o
+  CC      networking/libiproute/ll_types.o
+  CC      networking/libiproute/rt_names.o
+  CC      networking/libiproute/rtm_map.o
+  CC      networking/libiproute/utils.o
+  AR      networking/libiproute/lib.a
+  LD      networking/udhcp/built-in.o
+  CC      networking/udhcp/arpping.o
+  CC      networking/udhcp/common.o
+  CC      networking/udhcp/d6_dhcpc.o
+  CC      networking/udhcp/d6_packet.o
+  CC      networking/udhcp/d6_socket.o
+  CC      networking/udhcp/dhcpc.o
+  CC      networking/udhcp/dhcpd.o
+  CC      networking/udhcp/dhcprelay.o
+  CC      networking/udhcp/domain_codec.o
+  CC      networking/udhcp/dumpleases.o
+  CC      networking/udhcp/packet.o
+  CC      networking/udhcp/signalpipe.o
+  CC      networking/udhcp/socket.o
+  AR      networking/udhcp/lib.a
+  LD      printutils/built-in.o
+  CC      printutils/lpd.o
+  CC      printutils/lpr.o
+  AR      printutils/lib.a
+  LD      procps/built-in.o
+  CC      procps/free.o
+  CC      procps/fuser.o
+  CC      procps/iostat.o
+  CC      procps/kill.o
+  CC      procps/lsof.o
+  CC      procps/mpstat.o
+  CC      procps/nmeter.o
+  CC      procps/pgrep.o
+  CC      procps/pidof.o
+  CC      procps/pmap.o
+  CC      procps/powertop.o
+procps/powertop.c: In function ‘read_cstate_counts’:
+procps/powertop.c:181:34: warning: ‘%s’ directive writing up to 255 bytes into a region of size 171 [-Wformat-overflow=]
+  181 |                 sprintf(buf, "%s/%s/power", "/proc/acpi/processor", d->d_name);
+      |                                  ^~
+procps/powertop.c:181:17: note: ‘sprintf’ output between 28 and 283 bytes into a destination of size 192
+  181 |                 sprintf(buf, "%s/%s/power", "/proc/acpi/processor", d->d_name);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  CC      procps/ps.o
+  CC      procps/pstree.o
+  CC      procps/pwdx.o
+  CC      procps/smemcap.o
+  CC      procps/sysctl.o
+  CC      procps/top.o
+  CC      procps/uptime.o
+  CC      procps/vmstat.o
+  CC      procps/watch.o
+  AR      procps/lib.a
+  LD      runit/built-in.o
+  CC      runit/chpst.o
+  CC      runit/runsv.o
+  CC      runit/runsvdir.o
+  CC      runit/sv.o
+  CC      runit/svlogd.o
+  AR      runit/lib.a
+  LD      selinux/built-in.o
+  AR      selinux/lib.a
+  LD      shell/built-in.o
+  CC      shell/ash.o
+  CC      shell/ash_ptr_hack.o
+  CC      shell/cttyhack.o
+  CC      shell/hush.o
+shell/hush.c: In function ‘o_addqchr’:
+shell/hush.c:3298:23: warning: initialization discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+ 3298 |         char *found = strchr("*?[-\\" MAYBE_BRACES, ch);
+      |                       ^~~~~~
+shell/hush.c: In function ‘free_pipe’:
+shell/hush.c:3848:37: warning: variable ‘a’ set but not used [-Wunused-but-set-variable=]
+ 3848 |                                 int a;
+      |                                     ^
+shell/hush.c: In function ‘expand_one_var’:
+shell/hush.c:7196:21: warning: assignment discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+ 7196 |         exp_saveptr = arg[1] ? strchr(VAR_ENCODED_SUBST_OPS, arg[1]) : NULL;
+      |                     ^
+shell/hush.c:7188:15: warning: ‘exp_word’ is used uninitialized [-Wuninitialized]
+ 7188 |         char *exp_word = exp_word; /* for compiler */
+      |               ^~~~~~~~
+shell/hush.c:7188:15: note: ‘exp_word’ was declared here
+ 7188 |         char *exp_word = exp_word; /* for compiler */
+      |               ^~~~~~~~
+  CC      shell/match.o
+  CC      shell/math.o
+  CC      shell/random.o
+  CC      shell/shell_common.o
+  AR      shell/lib.a
+  LD      sysklogd/built-in.o
+  CC      sysklogd/klogd.o
+  CC      sysklogd/logread.o
+  CC      sysklogd/syslogd_and_logger.o
+  AR      sysklogd/lib.a
+  LD      util-linux/built-in.o
+  CC      util-linux/acpid.o
+  CC      util-linux/blkdiscard.o
+  CC      util-linux/blkid.o
+  CC      util-linux/blockdev.o
+  CC      util-linux/cal.o
+  CC      util-linux/chrt.o
+  CC      util-linux/dmesg.o
+  CC      util-linux/eject.o
+  CC      util-linux/fallocate.o
+  CC      util-linux/fatattr.o
+  CC      util-linux/fbset.o
+  CC      util-linux/fdformat.o
+  CC      util-linux/fdisk.o
+  CC      util-linux/findfs.o
+  CC      util-linux/flock.o
+  CC      util-linux/freeramdisk.o
+  CC      util-linux/fsck_minix.o
+  CC      util-linux/fsfreeze.o
+  CC      util-linux/fstrim.o
+  CC      util-linux/getopt.o
+  CC      util-linux/hexdump.o
+  CC      util-linux/hexdump_xxd.o
+  CC      util-linux/hwclock.o
+  CC      util-linux/ionice.o
+  CC      util-linux/ipcrm.o
+  CC      util-linux/ipcs.o
+  CC      util-linux/last_fancy.o
+  CC      util-linux/losetup.o
+  CC      util-linux/lsblk.o
+  CC      util-linux/lspci.o
+  CC      util-linux/lsusb.o
+  CC      util-linux/mdev.o
+  CC      util-linux/mesg.o
+  CC      util-linux/mkfs_ext2.o
+  CC      util-linux/mkfs_minix.o
+  CC      util-linux/mkfs_vfat.o
+  CC      util-linux/mkswap.o
+  CC      util-linux/more.o
+  CC      util-linux/mount.o
+  CC      util-linux/mountpoint.o
+  CC      util-linux/nsenter.o
+  CC      util-linux/pivot_root.o
+  CC      util-linux/rdate.o
+  CC      util-linux/rdev.o
+  CC      util-linux/readprofile.o
+  CC      util-linux/renice.o
+  CC      util-linux/rev.o
+  CC      util-linux/rtcwake.o
+  CC      util-linux/script.o
+  CC      util-linux/scriptreplay.o
+  CC      util-linux/setarch.o
+  CC      util-linux/setpriv.o
+  CC      util-linux/setsid.o
+  CC      util-linux/swaponoff.o
+  CC      util-linux/switch_root.o
+  CC      util-linux/taskset.o
+  CC      util-linux/uevent.o
+  CC      util-linux/umount.o
+  CC      util-linux/unshare.o
+  CC      util-linux/uuidgen.o
+  CC      util-linux/wall.o
+  AR      util-linux/lib.a
+  LD      util-linux/volume_id/built-in.o
+  CC      util-linux/volume_id/bcache.o
+  CC      util-linux/volume_id/btrfs.o
+  CC      util-linux/volume_id/cramfs.o
+  CC      util-linux/volume_id/erofs.o
+  CC      util-linux/volume_id/exfat.o
+  CC      util-linux/volume_id/ext.o
+  CC      util-linux/volume_id/f2fs.o
+  CC      util-linux/volume_id/fat.o
+  CC      util-linux/volume_id/get_devname.o
+  CC      util-linux/volume_id/hfs.o
+  CC      util-linux/volume_id/iso9660.o
+  CC      util-linux/volume_id/jfs.o
+  CC      util-linux/volume_id/lfs.o
+  CC      util-linux/volume_id/linux_raid.o
+  CC      util-linux/volume_id/linux_swap.o
+  CC      util-linux/volume_id/luks.o
+  CC      util-linux/volume_id/minix.o
+  CC      util-linux/volume_id/nilfs.o
+  CC      util-linux/volume_id/ntfs.o
+  CC      util-linux/volume_id/ocfs2.o
+  CC      util-linux/volume_id/reiserfs.o
+  CC      util-linux/volume_id/romfs.o
+  CC      util-linux/volume_id/squashfs.o
+  CC      util-linux/volume_id/sysv.o
+  CC      util-linux/volume_id/ubifs.o
+  CC      util-linux/volume_id/udf.o
+  CC      util-linux/volume_id/util.o
+  CC      util-linux/volume_id/volume_id.o
+  CC      util-linux/volume_id/xfs.o
+  AR      util-linux/volume_id/lib.a
+  LINK    busybox_unstripped
+Trying libraries: m resolv rt
+ Library m is needed, can't exclude it (yet)
+ Library resolv is needed, can't exclude it (yet)
+ Library rt is not needed, excluding it
+ Library m is needed, can't exclude it (yet)
+ Library resolv is needed, can't exclude it (yet)
+Final link with: m resolv
+  DOC     busybox.pod
+  DOC     BusyBox.txt
+  DOC     busybox.1
+  DOC     BusyBox.html
