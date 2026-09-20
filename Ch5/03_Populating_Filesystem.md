@@ -186,5 +186,63 @@ Now, our files must be stripped and its total size have been reduced from origin
 file lib/libc.so.6 
 lib/libc.so.6: ELF 32-bit LSB shared object, ARM, EABI5 version 1 (SYSV), dynamically linked, interpreter /lib/ld-linux-armhf.so.3, for GNU/Linux 3.2.0, stripped
 ```
+## Device Nodes 
+Most devices in linux are represented by **device nodes**. 
+Remembering the UNIX  philosophy, *everything is a file* (except network interfaces, which are sockets).
+
+A deep discussion about Device Nodes is available in MELP third edition page 134.
+Remember that we will need to create device nodes for each device that we wanto to access on our system, through the ```mknod``` command. 
+For purposes of this tutorial, as we are implementing a very minimal root filesystem, 
+we will just to create two device nodes ```null``` and ```console```.  
+
+```console``` only needs to be accesible to ```root```, the owner of the device node 
+so the access permisions are ```600 (rw-------)```. The ```null``` device node should be readable and writable by everyone, so the mode is ```666 (rw-rw-rw-)```. Use the ```-m``` option for mknode to set the mode when creating the node. And we require to be in root mode to create device nodes. 
+
+```bash
+cd <path to the staging directory>
+cd rootfs
+sudo mknod -m 666 dev/null c 1 3 
+sudo mknod -m 600 dev/console c 5 1 
+ls -l dev
+
+# expected output 
+total 1
+crwxr-xr-x 1 j2m j2m 5, 1 sep 17 21:38 console
+crwxr-xr-x 1 j2m j2m 1, 3 sep 17 21:38 null
+ 
+```
+
+to delete a device node, it is enough to use the file remover command ```rm ``` because they are also files. 
 
 
+## Mounting the proc and sys pseudofilesystems
+
+For an extended explanation of the ```proc``` and  ```sys``` filesystems 
+refer to MELP third edition book, page 136.
+
+For purposes of this tutorial, they are pseudofilesystems that provide a nearest view of the kernel activities. 
+They represent kernel data as files in a hierarchy of directories.  
+
+The Directories where the ```proc``` and  ```sys``` filesystems should be mounted 
+(```rootfs/proc``` and (```rootfs/sys```) 
+have been created before, we just have to take care about mount the filesystems
+when our SO launches the initi program with the commands:
+
+```bash
+mount -t proc proc /proc
+mount -t sysfs sysfs /sys
+```
+
+## Kernel Modules
+
+If your linux configuration have kernel modules, they need to be installed into the root filesystem
+ using the ```modules_install``` kernel make target. 
+This will copy the configuration files into de directory called ```lib/modules/<kernel version> 
+together with the configuration files needed by the ```modprobe``` command.
+
+```bash
+make modules_install \
+    INSTALL_MOD_PATH=~rootfs
+```
+
+In our case, there is no need to install any module yet. 
