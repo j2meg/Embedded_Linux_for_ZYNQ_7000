@@ -32,3 +32,5 @@ Aligned with the main objective, documentations and implementations follows the 
 * [Chapter 5 - Building a Root filesystem](Ch5)
   * [01 Topics and Technical Requirements](Ch5/01_Topics_and_Requirements.md)
   * [02 Root filesystem layout](Ch5/02_Root_Filesystem_layout.md)
+  * [03 Populating the root filesystem](Ch5/03_Populating_Filesystem.md)
+  * [04 Transferring filesystem to ZYBO](Ch5/04_Transfer_Filesystem_To_target.md)
