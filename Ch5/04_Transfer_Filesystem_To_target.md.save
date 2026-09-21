@@ -229,8 +229,9 @@ Our last step is to mount our ```sys``` and ```proc``` filesystems.
 ```bash
 mount -t proc proc /proc
 mount -t sysfs sysfs /sys
+```
 
-``` 
+and try shell commands such as  
 
 For a Full reference about the load of the kernel and mount of the filesystem 
 with uRamDisk, see ```Ch5/reference_files/minicom_log1.txt``` on this repository. 
