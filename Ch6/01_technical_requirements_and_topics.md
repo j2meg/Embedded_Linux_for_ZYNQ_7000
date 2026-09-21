@@ -1,5 +1,5 @@
 # Chapter 6. Selecting a Build System
-Reference (```MELP Third edition | Page 161)
+Reference (```MELP Third edition | Page 161```)
 
 In this chapter we will cover the next topics:
 - Comparing Build Systems (Buildroot and Yocto)

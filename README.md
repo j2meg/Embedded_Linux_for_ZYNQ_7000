@@ -37,4 +37,4 @@ Aligned with the main objective, documentations and implementations follows the 
   * [05 Other ways to transferring fs to ZYBO](Ch5/05_Other_ways_to_transferring_fs_to_ZYBO.md)
 * [Chapter 6 - Selecting a Build System -Buildroot and Yocto-](Ch6)
   * [01 Topics and Technical Requirements](Ch6/01_technical_requirements_and_topics.md)
-
+  * [02 Introducing Buildroot](Ch6/02_Introducing_Buildroot.md)
