@@ -100,3 +100,43 @@ The communication log that documents this interaction is storaged in
 The problem with this configuration is that **You must to**
 **regeneratethe cpio file each time you change the contents**
 **of the root filesystem and then, rebuild the kernel**
+
+## Build an initramfs using a device table 
+
+A device table is  a textfile that lists the files, directories, device nodes and links that go into an archive or filesystem. 
+It allows to create entries in te archive file tat are owned by the ```root``` user or any other UID, without having root privileges yourself. 
+
+You can create device nodes without root privileges. The archive is just a data file, the content is expanded at boot time and real files and directories get created using the attributes you have specified. 
+
+To enable the use of device table when creating an ```initramfs```, you have to write the device table file and then point ```CONFIG_INITRAM_FS``` at it. 
+For more details about **device tables** refeer to ```page 142-143``` of our reference book. 
+
+To create an ```initramfs device table``` from scratch, previous versions of Linux kernel had a **Linux kernel script** ```usr/gen_initramfs_list.sh``` which creates a device table from a given directory. 
+
+In our case (working on ```linux-6.18.52```) these file have been **deprecated**, but we can to use an scritp to create the device table (as intermediate step) for our initramfs from the ```rootfs``` directory, change the ownership to user and group ID 0, use the next commands:
+
+```bash 
+cd <path to linux repository>
+cd linux-stable
+# Command to create the device table and modify the UID and GID
+bash usr/gen_initramfs.sh -u 1000 -g 1000 <path to rootfs> > initramfs.cpio
+# In my case:
+
+bash usr/gen_initramfs.sh -u 1000 -g 1000 /home/j2meg/Documentos/EmbeddedLinux/Experiments/SwInstallers/Filesystem_generation/rootfs > /home/j2meg/Documentos/EmbeddedLinux/Experiments/SwInstallers/Filesystem_generation/initramfs.cpio
+``` 
+
+**note**: the script only works with a ```bash``` shell.
+The output can be compressed and transferred to the target device in the same way that we did in the ```Ch5/04_Transfer_Filesystem_to_Target.md```
+
+```bash
+# comprise the initramfs.cpio file 
+gzip -k   initramfs.cpio
+# Use one of the previous methods to load the filesystem in U-Boot 
+# as a standalone file 
+# or embedded in the kernel zImage file
+```
+
+**An interesting task at this point is to review, usr/gen_initramfs.sh file and try to extract the intermediate device table or device list, to explore its structure.**
+By now, that homework is out of the scope of this repository, but it can change in some time. 
+
+Other altenative way to create our ramdisk is to use **initrd** but, this method, is also out of the scope of this document. 
