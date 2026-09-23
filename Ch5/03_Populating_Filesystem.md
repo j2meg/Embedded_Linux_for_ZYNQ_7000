@@ -209,7 +209,6 @@ ls -l dev
 total 1
 crwxr-xr-x 1 j2m j2m 5, 1 sep 17 21:38 console
 crwxr-xr-x 1 j2m j2m 1, 3 sep 17 21:38 null
- 
 ```
 
 to delete a device node, it is enough to use the file remover command ```rm ``` because they are also files. 
@@ -237,12 +236,12 @@ mount -t sysfs sysfs /sys
 
 If your linux configuration have kernel modules, they need to be installed into the root filesystem
  using the ```modules_install``` kernel make target. 
-This will copy the configuration files into de directory called ```lib/modules/<kernel version> 
+This will copy the configuration files into de directory called ```lib/modules/<kernel version>``` 
 together with the configuration files needed by the ```modprobe``` command.
 
 ```bash
 make modules_install \
-    INSTALL_MOD_PATH=~rootfs
+    INSTALL_MOD_PATH=<path to rootfs>/rootfs
 ```
 
 In our case, there is no need to install any module yet. 
