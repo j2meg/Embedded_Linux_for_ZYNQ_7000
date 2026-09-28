@@ -329,22 +329,6 @@ total 2696
 
 # Finally, we completed our filesystem
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ##
 Once that those changes are made in our filesystem, we must to reload it into our 
 initramfs and load it into our target as a standalone file or embedded in our 
@@ -356,3 +340,7 @@ set this envronment variables before boot the kernel
 setenv bootargs console=ttyPS0,115200 rdinit=/sbin/init
 ```
 
+### In the next tutorial 
+We will see how to create an ext2 fs to mount on our SD card for ZYBO
+How to Boot it
+How to mounting the rootfs using NFS
