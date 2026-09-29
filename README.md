@@ -35,6 +35,8 @@ Aligned with the main objective, documentations and implementations follows the 
   * [03 Populating the root filesystem](Ch5/03_Populating_Filesystem.md)
   * [04 Transferring filesystem to ZYBO](Ch5/04_Transfer_Filesystem_To_target.md)
   * [05 Other ways to transferring fs to ZYBO](Ch5/05_Other_ways_to_transferring_fs_to_ZYBO.md)
+  * [06 Complementary init tasks](Ch5/06_Complementary_init_Tasks.md)
+  * [07 Booting with ext2, NFS and TFTP](Ch5/07_Booting_with_ext2_and_NFS.md)
 * [Chapter 6 - Selecting a Build System -Buildroot and Yocto-](Ch6)
   * [01 Topics and Technical Requirements](Ch6/01_technical_requirements_and_topics.md)
   * [02 Introducing Buildroot](Ch6/02_Introducing_Buildroot.md)
